@@ -1,0 +1,52 @@
+Logical Design
+
+Masses_aigua(nom_massa)
+
+Obligatoria per l’interrelació assiciat, controlar insercions
+
+Zones(num_zona, nom_massa, municipi, límit_superior, límit_inferior)
+    Entitat dèbil de Masses_aigua
+    {nom_massa} clau forana cap a Masses_aigua(nom_massa)
+
+Espècies(nom_popular, nom_científic, long_mitja)
+    {nom_cièntific} clau alternativa
+    Dates(data)
+
+Persones(DNI, nom)
+
+Funcionaris(DNI, nss, sou)
+    Subclasse de Persones
+    {DNI} clau forana cap a Persones(DNI)
+    {nss} clau alternativa
+
+Pescadors(DNI, carrer, ciutat, comunitat)
+    Subclasse de Persones
+    {DNI} clau forana cap a Persones(DNI)
+
+Interrelacions:
+
+Habitats(massa_aigua,num_zona nom_espècie, índex_població)
+    {num_zona,massa_aigua} clau forana cap a Zones (num_zona,nom_massa)
+    {nom_espècie} clau forana cap a Espècies(nom_popular)
+    Obligatorietats en els dos sentits ( controlar les insercions)
+
+Assignacions(funcionari, data_inici, num_zona, nom_massa, data_fi)
+    {num_zona, nom_massa} clau forana cap a Zones(num_zona, nom_massa)
+    {data_inici} clau forana cap a Dates(data)
+    {funcionari} clau forana cap a Funcionaris(DNI)
+
+Permisos(num_zona, nom_massa, data_vigència, num_max)
+    {num_zona, nom_massa} clau forana cap a Zones(num_zona, nom_massa)
+    {data_vigència} clau forana cap a Dates(data)
+
+Captures(num_zona, nom_massa, nom_espècie, num_max, long_min)
+    {num_zona, nom_massa} clau forana cap a Zonest(num_zona, nom_massa)
+    {nom_espècie} clau forana cap a Espècies(nom_popular)
+
+Multes(funcionari, infractor, data_multa, num_zona, nom_massa, motiu, import)
+    {funcionari} clau forana cap a Funcionaris(DNI)
+    {infractor} clau forana cap a Pescadors(DNI)
+    {data_multa} clau forana cap a Dates(data)
+    {num_zona, nom_massa} clau forana cap a Zones(num_zona, nom_massa)
+
+Nota: claus primàries subratllades
