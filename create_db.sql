@@ -40,11 +40,11 @@ create table especies (
 ) engine=innodb;
 --He de ficar nom_cientific com a clau alternativa
 
-insert into especies(nom_popular, nom_cientific, long_mitja) values ('PESCADILLA', 'Merluccius merluccius', 2);
-insert into especies(nom_popular, nom_cientific, long_mitja) values ('SALMONETE', 'Mullus barbatus', 5);
-insert into especies(nom_popular, nom_cientific, long_mitja) values ('LENGUADO', 'Solea vulgaris', 7);
-insert into especies(nom_popular, nom_cientific, long_mitja) values ('RODABALLO', 'Scophthalmus maximus', 8);
-insert into especies(nom_popular, nom_cientific, long_mitja) values ('SARDINA', 'Sardina pilchardus', 6);
+insert into especies(nom_popular, nom_cientific, long_mitja) values ('PESCADILLA', 'Merluccius merluccius', 20);
+insert into especies(nom_popular, nom_cientific, long_mitja) values ('SALMONETE', 'Mullus barbatus', 23);
+insert into especies(nom_popular, nom_cientific, long_mitja) values ('LENGUADO', 'Solea vulgaris', 27);
+insert into especies(nom_popular, nom_cientific, long_mitja) values ('RODABALLO', 'Scophthalmus maximus', 18);
+insert into especies(nom_popular, nom_cientific, long_mitja) values ('SARDINA', 'Sardina pilchardus', 36);
 
 
 create table persones (
@@ -84,7 +84,7 @@ create table pescadors (
 insert into pescadors(DNI, carrer, ciutat, comunitat) values ('47473645-H', 'Carrer A', 'Campredó', 'Catalunya');
 insert into pescadors(DNI, carrer, ciutat, comunitat) values ('47253645-I', 'Carrer B', 'Campredó', 'Catalunya');
 insert into pescadors(DNI, carrer, ciutat, comunitat) values ('47479845-X', 'Carrer C', 'Campredó', 'Catalunya');
-
+insert into pescadors(DNI, carrer, ciutat, comunitat) values ('47343645-G', 'Carrer D', 'Saragoza', 'Aragó');
 
 
 create table habitats (
@@ -123,6 +123,7 @@ create table assignacions (
 ) engine=innodb;
 
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473645-Q', '2018-05-28','Riu', 1);
+insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473645-Q', '2018-05-28','Pantà', 4);
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473645-Q', '2018-05-28','Riu', 2);
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473634-F', '2018-05-28','Riu', 3);
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473634-F', '2018-05-28','Pantà', 4);
@@ -135,10 +136,13 @@ create table permisos (
     data_vigencia date not null,
     num_max int,
     constraint pk_permisos primary key (num_zona, nom_massa, data_vigencia),
-    constraint fk_permisos_zona foreign key (num_zona, nom_massa) references zones(num_zona, nom_massa)
+    constraint fk_permisos_zona foreign key (num_zona, nom_massa) references zones(num_zona, nom_massa),
+    check (num_max<50)
 ) engine=innodb;
 
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu', 1, '2018-08-28', 6);
+insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu', 1, '2018-08-29', 6);
+insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu', 1, '2018-08-30', 6);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu', 2, '2018-08-28', 8);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu', 3, '2018-08-28', 7);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Pantà', 4, '2018-08-28', 10);
@@ -149,25 +153,25 @@ create table captures (
     nom_massa varchar(20) not null,
     nom_especie varchar(20) not null,
     num_max int,
-    long_mitja real,
+    long_min real,
     constraint pk_captures primary key (num_zona, nom_massa, nom_especie),
     constraint fk_captures_zona foreign key (num_zona, nom_massa) references zones(num_zona, nom_massa),
     constraint fk_captures_especie foreign key (nom_especie) references especies(nom_popular)
 ) engine=innodb;
 
 
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 1, 'PESCADILLA', 6, 5.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 1, 'SALMONETE', 7, 5.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 1, 'LENGUADO', 8, 5.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 1, 'RODABALLO', 9, 7.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 2, 'PESCADILLA', 6, 8.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 2, 'SALMONETE', 10, 9.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 3, 'LENGUADO', 6, 52.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 3, 'RODABALLO', 16, 15.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Riu', 3, 'PESCADILLA', 7, 45.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Pantà', 4, 'SALMONETE', 8, 7.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Pantà', 4, 'LENGUADO', 3, 9.6);
-insert into captures(nom_massa, num_zona, nom_especie, num_max, long_mitja) values ('Pantà', 5, 'RODABALLO', 12, 2.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 1, 'PESCADILLA', 6, 5.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 1, 'SALMONETE', 7, 5.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 1, 'LENGUADO', 8, 5.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 1, 'RODABALLO', 9, 7.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 2, 'PESCADILLA', 6, 8.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 2, 'SALMONETE', 10, 9.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 3, 'LENGUADO', 6, 52.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 3, 'RODABALLO', 16, 15.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu', 3, 'PESCADILLA', 7, 45.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Pantà', 4, 'SALMONETE', 8, 7.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Pantà', 4, 'LENGUADO', 3, 9.6);
+insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Pantà', 5, 'RODABALLO', 12, 2.6);
 
 
 create table multes (
@@ -188,3 +192,6 @@ insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu
 insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47473645-Q','47479845-X','2018-06-17','Pantà', 5, 'Tràfic de cucs', 12.6);
 insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47343645-G','47253645-I','2018-06-17','Pantà', 5, 'Pesca en C4', 28.6);
 insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47343645-G','47473645-H','2018-06-17','Pantà', 5, 'Mal dia', 25.6);
+
+--create assertion restriccio
+--check ( NOT EXIST (select * from captures c, especies s where c.nom_especie=s.nom_popular AND c.long_min > s.long_mitja))
