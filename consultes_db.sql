@@ -13,7 +13,13 @@ and p.DNI not in (  select m.funcionari
 --Realitza una consulta que doni com a resultat totes aquelles espècies que habiten simultàniament a totes les masses d’aigua de 
 --la comunitat. Més concretament es demana el nom científic i la longitud mitja en estat adult.
 
---select count(massa_aigua), nom_especie from habitats group by nom_especie;
+select nom_cientific, long_mitja
+from especies
+where nom_popular in (  select nom_especie 
+                        from habitats 
+                        group by nom_especie
+                        having count(distinct massa_aigua) = (  select count(*)
+                                                                from masses_aigua));
 
 --Trobar les zones per les quals es concedeixen permisos com a mínim en 3 dates diferents i que permeten alguna captura amb una 
 --longitud per sota dels 20 centímetres. Concretament es demana el número de la zona, el nom de la massa d’aigua, el municipi on
@@ -44,7 +50,10 @@ select *
 from especies
 where nom_popular in (  select nom_especie
                         from habitats
-                        where massa_aigua = 'Riu');
+                        where massa_aigua = 'Riu Ebre'
+                        and nom_especie not in (select nom_especie
+                                                from habitats
+                                                where massa_aigua != 'Riu Ebre'));
 
 --Trobar totes les multes imposades en zones que actualment no tenen cap assignació activa. Més concretament, es vol saber el nom 
 --del funcionari que ha imposat la multa, el nom de l’infractor, el motiu pel qual s’ha imposat la multa i data d’imposició de la
