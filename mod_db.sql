@@ -4,7 +4,7 @@
 
 start transaction;
 update funcionaris
-set sou = sou + sou*0.05
+set sou = sou*1.05
 where DNI in (  select funcionari
                 from assignacions
                 group by funcionari

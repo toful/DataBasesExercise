@@ -4,12 +4,18 @@ drop database DB1;
 create database DB1;
 use DB1;
 
+create domain tipus_zona as varchar(20)(
+	check(
+		value 'vedat'
+		or value 'lliure'
+		or value 'controlada'
+	);
+)
 
 create table masses_aigua (
     nom_massa varchar(20) not null,
     constraint pk_masses_aigua primary key (nom_massa)
 ) engine=innodb;
-
 
 create table zones (
     num_zona int not null,
@@ -17,6 +23,7 @@ create table zones (
     municipi varchar(20),
     limit_superior varchar(20),
     limit_inferior varchar(20),
+    tipus tipus_zona,
     constraint pk_zones primary key (num_zona, nom_massa),
     constraint fk_masses_aigua foreign key (nom_massa) references masses_aigua(nom_massa)
 ) engine=innodb;
