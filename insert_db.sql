@@ -3,12 +3,12 @@ insert into masses_aigua(nom_massa) values ('Riu Ebre');
 insert into masses_aigua(nom_massa) values ('Pantà de Siurana');
 insert into masses_aigua(nom_massa) values ('Mar Mediterrani');
 
-insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus_zona) values (1, 'Riu Ebre', 'Campredó', 'Tortosa', 'Amposta', 'vedat');
-insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus_zona) values (2, 'Riu Ebre', 'Tortosa', 'Xerta', 'Campredó', 'lliure');
-insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus_zona) values (3, 'Riu Ebre', 'Amposta', 'Campredó', 'Sant Jaume', 'controlada');
-insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus_zona) values (1, 'Pantà de Siurana', 'Campredó', 'Tortosa', 'Amposta', 'lliure');
-insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus_zona) values (2, 'Pantà de Siurana', 'Tortosa', 'Xerta', 'Campredó', 'controlada');
-insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus_zona) values (1, 'Mar Mediterrani', 'La Cava', 'Sant Carles de la Ràpita', 'La Ampolla', 'lliure');
+insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (1, 'Riu Ebre', 'Campredó', 'Tortosa', 'Amposta', 'vedat');
+insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (2, 'Riu Ebre', 'Tortosa', 'Xerta', 'Campredó', 'lliure');
+insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (3, 'Riu Ebre', 'Amposta', 'Campredó', 'Sant Jaume', 'controlada');
+insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (1, 'Pantà de Siurana', 'Campredó', 'Tortosa', 'Amposta', 'lliure');
+insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (2, 'Pantà de Siurana', 'Tortosa', 'Xerta', 'Campredó', 'controlada');
+insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (1, 'Mar Mediterrani', 'La Cava', 'Sant Carles de la Ràpita', 'La Ampolla', 'lliure');
 
 insert into especies(nom_popular, nom_cientific, long_mitja) values ('PESCADILLA', 'Merluccius merluccius', 20);
 insert into especies(nom_popular, nom_cientific, long_mitja) values ('SALMONETE', 'Mullus barbatus', 23);
