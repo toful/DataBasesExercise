@@ -13,10 +13,10 @@ create table masses_aigua (
 
 create table zones (
     num_zona int not null,
-    nom_massa varchar(20) not null,
-    municipi varchar(20),
-    limit_superior varchar(20),
-    limit_inferior varchar(20),
+    nom_massa varchar(30) not null,
+    municipi varchar(30),
+    limit_superior varchar(30),
+    limit_inferior varchar(30),
     tipus ENUM('vedat', 'lliure', 'controlada'),
     constraint pk_zones primary key (num_zona, nom_massa),
     constraint fk_masses_aigua foreign key (nom_massa) references masses_aigua(nom_massa)
@@ -25,7 +25,7 @@ create table zones (
 
 create table especies (
     nom_popular varchar(20) not null,
-    nom_cientific varchar(20) not null unique,
+    nom_cientific varchar(30) not null unique,
     long_mitja real,
     constraint pk_especies primary key (nom_popular)
 ) engine=innodb;
