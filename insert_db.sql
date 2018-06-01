@@ -8,6 +8,7 @@ insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior,
 insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (3, 'Riu Ebre', 'Amposta', 'Campredó', 'Sant Jaume', 'controlada');
 insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (1, 'Pantà de Siurana', 'Campredó', 'Tortosa', 'Amposta', 'lliure');
 insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (2, 'Pantà de Siurana', 'Tortosa', 'Xerta', 'Campredó', 'controlada');
+insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (3, 'Pantà de Siurana', 'Tortosa', 'Xerta', 'Campredó', 'vedat');
 insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (1, 'Mar Mediterrani', 'La Cava', 'Sant Carles de la Ràpita', 'La Ampolla', 'lliure');
 
 insert into especies(nom_popular, nom_cientific, long_mitja) values ('PESCADILLA', 'Merluccius merluccius', 20);
@@ -56,10 +57,13 @@ insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('4
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 1, '2018-08-28', 6);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 1, '2018-08-29', 6);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 1, '2018-08-30', 6);
-insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 2, '2018-08-28', 8);
+insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 2, '2018-08-30', 7);
+insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 2, '2018-08-10', 8);
+insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 2, '2018-08-11', 9);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 3, '2018-08-28', 7);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Pantà de Siurana', 1, '2018-08-28', 10);
-insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Pantà de Siurana', 2, '2018-08-28', 2);
+insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Pantà de Siurana', 2, '2018-08-28', 12);
+insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Pantà de Siurana', 3, '2018-08-28', 15);
 
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 1, 'PESCADILLA', 6, 5.6);
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 1, 'SALMONETE', 7, 5.6);
