@@ -4,8 +4,6 @@ drop database DB1;
 create database DB1;
 use DB1;
 
-SET @@global.sql_mode= 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-
 create table masses_aigua (
     nom_massa varchar(20) not null,
     constraint pk_masses_aigua primary key (nom_massa)

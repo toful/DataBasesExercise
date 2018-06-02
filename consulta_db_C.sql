@@ -5,24 +5,11 @@
 
 select Z.num_zona, Z.nom_massa, Z.municipi, Z.tipus
 from zones Z 
-where Z.num_zona, Z.nom_massa in ( select C.num_zona, C.nom_massa
+where (Z.num_zona, Z.nom_massa) in ( select C.num_zona, C.nom_massa
                     from captures C
                     where C.long_min < 20)
-and Z.num_zona, Z.nom_massa in ( select P.num_zona, P.nom_massa
+and (Z.num_zona, Z.nom_massa) in ( select P.num_zona, P.nom_massa
                     from permisos P
                     group by P.num_zona, P.nom_massa
-                    having count(*) > 2);
+                    having count(distinct P.data_vigencia) > 2);
 
-
-/*
-select num_zona, nom_massa, municipi, tipus
-from zones 
-where num_zona in ( select num_zona 
-                    from permisos 
-                    group by num_zona, nom_massa
-                    having count(*) > 2)
-and num_zona in (   select num_zona
-                    from captures
-                    where long_min < 20);
-
-                    */

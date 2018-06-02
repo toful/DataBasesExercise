@@ -1,5 +1,5 @@
 
---Realitza una consulta que doni com a resultat totes les dades de totes les espècies que habiten només al riu Ara.
+-- Realitza una consulta que doni com a resultat totes les dades de totes les espècies que habiten només al riu Ara.
 
 select *
 from especies

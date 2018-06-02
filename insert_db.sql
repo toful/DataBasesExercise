@@ -9,6 +9,7 @@ insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior,
 insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (1, 'Pantà de Siurana', 'Campredó', 'Tortosa', 'Amposta', 'lliure');
 insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (2, 'Pantà de Siurana', 'Tortosa', 'Xerta', 'Campredó', 'controlada');
 insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (3, 'Pantà de Siurana', 'Tortosa', 'Xerta', 'Campredó', 'vedat');
+insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (4, 'Pantà de Siurana', 'Tortosa', 'Xerta', 'Espanya', 'vedat');
 insert into zones(num_zona, nom_massa, municipi, limit_superior, limit_inferior, tipus) values (1, 'Mar Mediterrani', 'La Cava', 'Sant Carles de la Ràpita', 'La Ampolla', 'lliure');
 
 insert into especies(nom_popular, nom_cientific, long_mitja) values ('PESCADILLA', 'Merluccius merluccius', 20);
@@ -23,10 +24,15 @@ insert into persones(DNI, nom) values ('47343645-G', 'Elena Nito');
 insert into persones(DNI, nom) values ('47473645-H', 'Lola Mento');
 insert into persones(DNI, nom) values ('47253645-I', 'Helen Chufe');
 insert into persones(DNI, nom) values ('47479845-X', 'Jorge Nitales');
+insert into persones(DNI, nom) values ('47343645-Y', 'Luis Barcenas');
+insert into persones(DNI, nom) values ('47343645-Z', 'M. Rajoy');
 
 insert into funcionaris(DNI, nss, sou) values ('47473645-Q', 'num_seg_social_1', 34);
 insert into funcionaris(DNI, nss, sou) values ('47473634-F', 'num_seg_social_2', 34);
 insert into funcionaris(DNI, nss, sou) values ('47343645-G', 'num_seg_social_3', 34);
+insert into funcionaris(DNI, nss, sou) values ('47343645-Y', 'num_seg_social_4', 34);
+insert into funcionaris(DNI, nss, sou) values ('47343645-Z', 'num_seg_social_5', 34);
+
 
 insert into pescadors(DNI, carrer, ciutat, comunitat) values ('47473645-H', 'Carrer A', 'Campredó', 'Catalunya');
 insert into pescadors(DNI, carrer, ciutat, comunitat) values ('47253645-I', 'Carrer B', 'Campredó', 'Catalunya');
@@ -49,10 +55,11 @@ insert into habitats(massa_aigua, num_zona, nom_especie, index_poblacio) values 
 
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473645-Q', '2018-05-28','Riu Ebre', 1);
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473645-Q', '2018-05-28','Pantà de Siurana', 1);
-insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473645-Q', '2018-05-28','Riu Ebre', 2);
+insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473645-Q', '2018-04-28','Riu Ebre', 2);
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473634-F', '2018-05-28','Riu Ebre', 3);
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47473634-F', '2018-05-28','Pantà de Siurana', 1);
 insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47343645-G', '2018-05-28','Pantà de Siurana', 2);
+insert into assignacions(funcionari, data_inici, nom_massa, num_zona) values ('47343645-G', '2018-07-28','Pantà de Siurana', 3);
 
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 1, '2018-08-28', 6);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 1, '2018-08-29', 6);
@@ -72,10 +79,8 @@ insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 2, 'PESCADILLA', 6, 8.6);
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 2, 'SALMONETE', 10, 9.6);
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 3, 'LENGUADO', 6, 52.6);
--- insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 4, 'LENGUADO', 6, 2.6);
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 3, 'RODABALLO', 16, 15.6);
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 3, 'PESCADILLA', 7, 45.6);
--- insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Riu Ebre', 3, 'PESCADILLA', 7, 5.6);
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Pantà de Siurana', 1, 'SALMONETE', 8, 7.6);
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Pantà de Siurana', 1, 'LENGUADO', 3, 9.6);
 insert into captures(nom_massa, num_zona, nom_especie, num_max, long_min) values ('Pantà de Siurana', 2, 'RODABALLO', 12, 2.6);
@@ -86,3 +91,7 @@ insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu
 insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47343645-G','47253645-I','2018-06-17','Pantà de Siurana', 2, 'Pesca en C4', 28.6);
 insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47343645-G','47473645-H','2018-06-17','Pantà de Siurana', 2, 'Mal dia', 25.6);
 insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47343645-G','47473645-H','2018-06-18','Pantà de Siurana', 2, 'Pesca amb TNT', 25.6);
+insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47473634-F','47343645-G','2018-06-19','Pantà de Siurana', 1, 'Pesca amb llampec', 19.6);
+insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47473634-F','47473645-G','2018-05-19','Pantà de Siurana', 1, 'Pesca amb clorhidric', 1000.6);
+insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47473634-F','47473645-G','2018-07-19','Pantà de Siurana', 3, 'No porta suficient pel soborn', 10000.6);
+insert into multes(funcionari, infractor, data_multa, nom_massa, num_zona, motiu, import) values ('47473634-F','47473645-G','2018-07-19','Pantà de Siurana', 4, 'No porta suficient pel soborn', 10000.6);
