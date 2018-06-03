@@ -65,7 +65,7 @@ insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu E
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 1, '2018-08-29', 6);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 1, '2018-08-30', 6);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 2, '2018-08-30', 7);
-insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 2, '2018-08-10', 8);
+insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 2, '2018-08-10', 30);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 2, '2018-08-11', 9);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Riu Ebre', 3, '2018-08-28', 7);
 insert into permisos(nom_massa, num_zona, data_vigencia, num_max) values ('Pantà de Siurana', 1, '2018-08-28', 10);
